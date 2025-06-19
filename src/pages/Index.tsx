@@ -1,12 +1,47 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState } from 'react';
+import GenderSelection from '@/components/onboarding/GenderSelection';
+import BottomNav from '@/components/navigation/BottomNav';
+import DailyProtocol from '@/components/daily/DailyProtocol';
+import FitnessModule from '@/components/fitness/FitnessModule';
+import FashionModule from '@/components/fashion/FashionModule';
+import BodyModule from '@/components/body/BodyModule';
+import PresenceModule from '@/components/presence/PresenceModule';
 
 const Index = () => {
+  const [userGender, setUserGender] = useState<'male' | 'female' | null>(null);
+  const [activeTab, setActiveTab] = useState('home');
+
+  const handleGenderSelect = (gender: 'male' | 'female') => {
+    setUserGender(gender);
+    console.log('Gender selected:', gender);
+  };
+
+  if (!userGender) {
+    return <GenderSelection onSelect={handleGenderSelect} />;
+  }
+
+  const renderActiveModule = () => {
+    switch (activeTab) {
+      case 'home':
+        return <DailyProtocol />;
+      case 'fitness':
+        return <FitnessModule />;
+      case 'fashion':
+        return <FashionModule />;
+      case 'body':
+        return <BodyModule userGender={userGender} />;
+      case 'presence':
+        return <PresenceModule />;
+      default:
+        return <DailyProtocol />;
+    }
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-slate-900">
+      {renderActiveModule()}
+      <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
     </div>
   );
 };
