@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { User, Category, Wallet, HelpCircle, LogOut } from 'lucide-react';
+import { User, Grid3X3, Wallet, HelpCircle, LogOut } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -18,7 +18,7 @@ import { Button } from '@/components/ui/button';
 const menuItems = [
   {
     title: 'Categories',
-    icon: Category,
+    icon: Grid3X3,
     onClick: () => console.log('Categories clicked'),
   },
   {
