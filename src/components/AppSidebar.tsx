@@ -59,20 +59,17 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className="border-r-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-      <SidebarHeader className="p-6 border-b border-slate-700/50">
-        <div className="flex items-center gap-3 group">
-          <div className="relative">
-            <Avatar className="h-12 w-12 border-2 border-slate-600 transition-all duration-300 group-hover:border-blue-400 group-hover:shadow-lg group-hover:shadow-blue-400/25">
-              <AvatarImage src="/placeholder.svg" alt="User" />
-              <AvatarFallback className="bg-gradient-to-br from-blue-500 to-purple-600 text-white font-semibold">
-                <User className="h-6 w-6" />
-              </AvatarFallback>
-            </Avatar>
-            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-slate-900 animate-pulse"></div>
-          </div>
+    <Sidebar className="border-r-0 bg-slate-900">
+      <SidebarHeader className="p-6 border-b border-slate-700/50 bg-slate-900">
+        <div className="flex items-center gap-3">
+          <Avatar className="h-12 w-12 border-2 border-slate-600">
+            <AvatarImage src="/placeholder.svg" alt="User" />
+            <AvatarFallback className="bg-slate-700 text-white">
+              <User className="h-6 w-6" />
+            </AvatarFallback>
+          </Avatar>
           <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-white truncate group-hover:text-blue-400 transition-colors duration-200">
+            <h3 className="font-semibold text-white truncate">
               John Doe
             </h3>
             <p className="text-sm text-slate-400 truncate">
@@ -82,7 +79,7 @@ export function AppSidebar() {
         </div>
       </SidebarHeader>
 
-      <SidebarContent className="px-4 py-6">
+      <SidebarContent className="px-4 py-6 bg-slate-900">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu className="space-y-2">
@@ -90,16 +87,13 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     onClick={item.onClick}
-                    className="w-full h-12 px-4 rounded-xl bg-slate-800/50 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-purple-600/20 border border-slate-700/50 hover:border-blue-400/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-400/10 group"
-                    style={{
-                      animationDelay: `${index * 100}ms`,
-                    }}
+                    className="w-full h-12 px-4 rounded-xl bg-slate-800/50 hover:bg-slate-700 border border-slate-700/50 hover:border-slate-600 transition-all duration-300 group text-slate-200 hover:text-white"
                   >
                     <div className="flex items-center gap-3 w-full">
-                      <div className="p-2 rounded-lg bg-slate-700/50 group-hover:bg-blue-500/20 transition-all duration-300">
-                        <item.icon className="h-5 w-5 text-slate-300 group-hover:text-blue-400 transition-colors duration-300" />
+                      <div className="p-2 rounded-lg bg-slate-700/50 group-hover:bg-slate-600 transition-all duration-300">
+                        <item.icon className="h-5 w-5 text-slate-300 group-hover:text-white transition-colors duration-300" />
                       </div>
-                      <span className="font-medium text-slate-200 group-hover:text-white transition-colors duration-300">
+                      <span className="font-medium">
                         {item.title}
                       </span>
                     </div>
@@ -111,13 +105,13 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="p-4 border-t border-slate-700/50">
+      <SidebarFooter className="p-4 border-t border-slate-700/50 bg-slate-900">
         <Button
           onClick={handleLogout}
-          className="w-full h-12 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl border border-red-500/30 hover:border-red-400/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-500/20 group"
+          className="w-full h-12 bg-slate-800 hover:bg-slate-700 text-white rounded-xl border border-slate-700/50 hover:border-slate-600 transition-all duration-300 group"
         >
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-red-500/20 group-hover:bg-red-400/30 transition-all duration-300">
+            <div className="p-2 rounded-lg bg-slate-700/50 group-hover:bg-slate-600 transition-all duration-300">
               <LogOut className="h-5 w-5" />
             </div>
             <span className="font-medium">Logout</span>
