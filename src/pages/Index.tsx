@@ -7,6 +7,7 @@ import FitnessModule from '@/components/fitness/FitnessModule';
 import FashionModule from '@/components/fashion/FashionModule';
 import BodyModule from '@/components/body/BodyModule';
 import PresenceModule from '@/components/presence/PresenceModule';
+import { SidebarTrigger } from '@/components/ui/sidebar';
 
 const Index = () => {
   const [userGender, setUserGender] = useState<'male' | 'female' | null>(null);
@@ -39,7 +40,10 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen bg-slate-900 relative">
+      <div className="absolute top-4 left-4 z-50">
+        <SidebarTrigger className="bg-slate-800/90 hover:bg-slate-700 border border-slate-600/50 text-white backdrop-blur-sm transition-all duration-300 hover:scale-105" />
+      </div>
       {renderActiveModule()}
       <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
     </div>
