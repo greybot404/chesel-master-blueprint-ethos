@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { User, Grid3X3, Wallet, HelpCircle, LogOut } from 'lucide-react';
+import { User, Grid3X3, Wallet, HelpCircle, LogOut, Bell, MessageSquare, Heart, Settings } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -22,9 +22,29 @@ const menuItems = [
     onClick: () => console.log('Categories clicked'),
   },
   {
+    title: 'Notifications',
+    icon: Bell,
+    onClick: () => console.log('Notifications clicked'),
+  },
+  {
+    title: 'Messages',
+    icon: MessageSquare,
+    onClick: () => console.log('Messages clicked'),
+  },
+  {
+    title: 'Favorites',
+    icon: Heart,
+    onClick: () => console.log('Favorites clicked'),
+  },
+  {
     title: 'Wallet',
     icon: Wallet,
     onClick: () => console.log('Wallet clicked'),
+  },
+  {
+    title: 'Settings',
+    icon: Settings,
+    onClick: () => console.log('Settings clicked'),
   },
   {
     title: 'Help & Support',
