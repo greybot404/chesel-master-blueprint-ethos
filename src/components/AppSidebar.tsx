@@ -69,20 +69,20 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className="border-r-0 bg-chesel-dark">
-      <SidebarHeader className="p-6 border-b border-chesel-gray/30">
+    <Sidebar className="border-r-0 glass-sidebar">
+      <SidebarHeader className="p-6 border-b border-white/10">
         <div className="flex items-center gap-3">
-          <Avatar className="h-12 w-12 border-2 border-chesel-green">
+          <Avatar className="h-12 w-12 border-2 border-chesel-primary/50 glass-card">
             <AvatarImage src="/placeholder.svg" alt="User" />
-            <AvatarFallback className="bg-chesel-gray text-chesel-light">
-              <img src="/images/icons/profile-user.svg" alt="Profile" className="h-6 w-6" />
+            <AvatarFallback className="glass-card text-chesel-light">
+              <img src="/images/icons/profile-user.svg" alt="Profile" className="h-6 w-6 filter brightness-0 invert" />
             </AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
             <h3 className="font-semibold text-chesel-light truncate">
               John Doe
             </h3>
-            <p className="text-sm text-gray-400 truncate">
+            <p className="text-sm text-blue-300/70 truncate">
               Premium Member
             </p>
           </div>
@@ -93,17 +93,17 @@ export function AppSidebar() {
         {/* Profile & My Space */}
         <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-2">
+            <SidebarMenu className="space-y-3">
               <SidebarMenuItem>
                 <SidebarMenuButton
                   onClick={() => console.log('Profile clicked')}
-                  className="w-full h-12 px-4 rounded-xl bg-chesel-gray/50 hover:bg-chesel-green/20 border border-chesel-gray/50 hover:border-chesel-green/50 transition-all duration-300 group text-chesel-light hover:text-chesel-green"
+                  className="w-full h-14 px-4 glass-card hover:glass-card-strong rounded-2xl transition-all duration-300 group text-chesel-light hover:text-chesel-primary hover:glow-primary"
                 >
-                  <div className="flex items-center gap-3 w-full">
-                    <div className="p-2 rounded-lg bg-chesel-gray/50 group-hover:bg-chesel-green/20 transition-all duration-300">
-                      <img src="/images/icons/profile-user.svg" alt="Profile" className="h-5 w-5 text-gray-300 group-hover:text-chesel-green transition-colors duration-300" />
+                  <div className="flex items-center gap-4 w-full">
+                    <div className="p-3 rounded-xl glass-button-primary transition-all duration-300">
+                      <img src="/images/icons/profile-user.svg" alt="Profile" className="h-5 w-5 filter brightness-0 invert" />
                     </div>
-                    <span className="font-medium">Profile</span>
+                    <span className="font-medium text-base">Profile</span>
                   </div>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -111,13 +111,13 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   onClick={() => console.log('My Space clicked')}
-                  className="w-full h-12 px-4 rounded-xl bg-chesel-gray/50 hover:bg-chesel-green/20 border border-chesel-gray/50 hover:border-chesel-green/50 transition-all duration-300 group text-chesel-light hover:text-chesel-green"
+                  className="w-full h-14 px-4 glass-card hover:glass-card-strong rounded-2xl transition-all duration-300 group text-chesel-light hover:text-chesel-primary hover:glow-primary"
                 >
-                  <div className="flex items-center gap-3 w-full">
-                    <div className="p-2 rounded-lg bg-chesel-gray/50 group-hover:bg-chesel-green/20 transition-all duration-300">
-                      <img src="/images/icons/my-space.svg" alt="My Space" className="h-5 w-5 text-gray-300 group-hover:text-chesel-green transition-colors duration-300" />
+                  <div className="flex items-center gap-4 w-full">
+                    <div className="p-3 rounded-xl glass-button-primary transition-all duration-300">
+                      <img src="/images/icons/my-space.svg" alt="My Space" className="h-5 w-5 filter brightness-0 invert" />
                     </div>
-                    <span className="font-medium">My Space</span>
+                    <span className="font-medium text-base">My Space</span>
                   </div>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -128,18 +128,18 @@ export function AppSidebar() {
         {/* Default Menu Items */}
         <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-2">
+            <SidebarMenu className="space-y-3">
               {defaultMenuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     onClick={item.onClick}
-                    className="w-full h-12 px-4 rounded-xl bg-chesel-gray/50 hover:bg-chesel-green/20 border border-chesel-gray/50 hover:border-chesel-green/50 transition-all duration-300 group text-chesel-light hover:text-chesel-green"
+                    className="w-full h-14 px-4 glass-card hover:glass-card-strong rounded-2xl transition-all duration-300 group text-chesel-light hover:text-chesel-primary hover:glow-primary"
                   >
-                    <div className="flex items-center gap-3 w-full">
-                      <div className="p-2 rounded-lg bg-chesel-gray/50 group-hover:bg-chesel-green/20 transition-all duration-300">
-                        <item.icon className="h-5 w-5 text-gray-300 group-hover:text-chesel-green transition-colors duration-300" />
+                    <div className="flex items-center gap-4 w-full">
+                      <div className="p-3 rounded-xl glass-button-primary transition-all duration-300">
+                        <item.icon className="h-5 w-5 text-blue-200 group-hover:text-white transition-colors duration-300" />
                       </div>
-                      <span className="font-medium">{item.title}</span>
+                      <span className="font-medium text-base">{item.title}</span>
                     </div>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -151,29 +151,29 @@ export function AppSidebar() {
         {/* Custom Shortcuts */}
         {shortcuts.length > 0 && (
           <SidebarGroup>
-            <SidebarGroupLabel className="text-gray-400 text-xs uppercase tracking-wider px-2">
+            <SidebarGroupLabel className="text-blue-300/60 text-xs uppercase tracking-wider px-3 mb-3 font-semibold">
               My Shortcuts
             </SidebarGroupLabel>
             <SidebarGroupContent>
-              <SidebarMenu className="space-y-2">
+              <SidebarMenu className="space-y-3">
                 {shortcuts.map((shortcut) => (
                   <SidebarMenuItem key={shortcut.id}>
                     <SidebarMenuButton
                       onClick={() => console.log(`${shortcut.title} shortcut clicked`)}
-                      className="w-full h-12 px-4 rounded-xl bg-chesel-gray/50 hover:bg-chesel-green/20 border border-chesel-gray/50 hover:border-chesel-green/50 transition-all duration-300 group text-chesel-light hover:text-chesel-green relative"
+                      className="w-full h-14 px-4 glass-card hover:glass-card-strong rounded-2xl transition-all duration-300 group text-chesel-light hover:text-chesel-secondary hover:glow-secondary relative"
                     >
-                      <div className="flex items-center gap-3 w-full">
-                        <div className="p-2 rounded-lg bg-chesel-gray/50 group-hover:bg-chesel-green/20 transition-all duration-300">
-                          <img src={shortcut.icon} alt={shortcut.title} className="h-5 w-5 text-gray-300 group-hover:text-chesel-green transition-colors duration-300" />
+                      <div className="flex items-center gap-4 w-full">
+                        <div className="p-3 rounded-xl bg-cyan-500/20 group-hover:bg-cyan-500/30 transition-all duration-300">
+                          <img src={shortcut.icon} alt={shortcut.title} className="h-5 w-5 filter brightness-0 invert" />
                         </div>
-                        <span className="font-medium">{shortcut.title}</span>
+                        <span className="font-medium text-base">{shortcut.title}</span>
                       </div>
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           removeShortcut(shortcut.id);
                         }}
-                        className="absolute right-3 top-3 text-gray-500 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all"
+                        className="absolute right-4 top-4 text-red-400/60 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all text-lg font-bold"
                       >
                         ×
                       </button>
@@ -192,34 +192,34 @@ export function AppSidebar() {
               <DialogTrigger asChild>
                 <Button
                   variant="outline"
-                  className="w-full h-12 bg-chesel-gray/30 hover:bg-chesel-green/20 border border-dashed border-chesel-green/50 hover:border-chesel-green text-gray-400 hover:text-chesel-green transition-all duration-300 rounded-xl"
+                  className="w-full h-14 glass-button hover:glass-card border-2 border-dashed border-chesel-primary/40 hover:border-chesel-primary text-blue-300 hover:text-chesel-primary transition-all duration-300 rounded-2xl font-medium"
                 >
-                  <Plus className="h-4 w-4 mr-2" />
+                  <Plus className="h-5 w-5 mr-3" />
                   Add Shortcut
                 </Button>
               </DialogTrigger>
-              <DialogContent className="bg-chesel-dark border-chesel-gray">
+              <DialogContent className="glass-card-strong border-white/20 rounded-2xl">
                 <DialogHeader>
-                  <DialogTitle className="text-chesel-light">Add Custom Shortcut</DialogTitle>
+                  <DialogTitle className="text-chesel-light text-xl font-semibold">Add Custom Shortcut</DialogTitle>
                 </DialogHeader>
-                <div className="space-y-4">
+                <div className="space-y-6 pt-4">
                   <Input
                     placeholder="Shortcut name (e.g., Personal Stylist)"
                     value={shortcutName}
                     onChange={(e) => setShortcutName(e.target.value)}
-                    className="bg-chesel-gray border-chesel-gray text-chesel-light"
+                    className="glass-input text-chesel-light placeholder:text-blue-300/50 h-12 rounded-xl text-base"
                   />
-                  <div className="flex gap-2">
+                  <div className="flex gap-3">
                     <Button
                       onClick={addShortcut}
-                      className="flex-1 bg-chesel-green hover:bg-chesel-green/80 text-chesel-light"
+                      className="flex-1 h-12 bg-chesel-primary hover:bg-chesel-primary/80 text-white rounded-xl font-medium glow-primary"
                     >
-                      Add
+                      Add Shortcut
                     </Button>
                     <Button
                       variant="outline"
                       onClick={() => setIsAddingShortcut(false)}
-                      className="flex-1 border-chesel-gray text-gray-300 hover:bg-chesel-gray"
+                      className="flex-1 h-12 glass-button text-blue-300 hover:text-white border-white/20 rounded-xl font-medium"
                     >
                       Cancel
                     </Button>
@@ -233,18 +233,18 @@ export function AppSidebar() {
         {/* Bottom Menu Items */}
         <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-2">
+            <SidebarMenu className="space-y-3">
               {bottomMenuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     onClick={item.onClick}
-                    className="w-full h-12 px-4 rounded-xl bg-chesel-gray/50 hover:bg-chesel-green/20 border border-chesel-gray/50 hover:border-chesel-green/50 transition-all duration-300 group text-chesel-light hover:text-chesel-green"
+                    className="w-full h-14 px-4 glass-card hover:glass-card-strong rounded-2xl transition-all duration-300 group text-chesel-light hover:text-chesel-primary hover:glow-primary"
                   >
-                    <div className="flex items-center gap-3 w-full">
-                      <div className="p-2 rounded-lg bg-chesel-gray/50 group-hover:bg-chesel-green/20 transition-all duration-300">
-                        <item.icon className="h-5 w-5 text-gray-300 group-hover:text-chesel-green transition-colors duration-300" />
+                    <div className="flex items-center gap-4 w-full">
+                      <div className="p-3 rounded-xl glass-button-primary transition-all duration-300">
+                        <item.icon className="h-5 w-5 text-blue-200 group-hover:text-white transition-colors duration-300" />
                       </div>
-                      <span className="font-medium">{item.title}</span>
+                      <span className="font-medium text-base">{item.title}</span>
                     </div>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -254,16 +254,16 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="p-4 border-t border-chesel-gray/30">
+      <SidebarFooter className="p-4 border-t border-white/10">
         <Button
           onClick={handleLogout}
-          className="w-full h-12 bg-chesel-gray hover:bg-chesel-green/20 text-chesel-light hover:text-chesel-green rounded-xl border border-chesel-gray/50 hover:border-chesel-green/50 transition-all duration-300 group"
+          className="w-full h-14 glass-card hover:glass-card-strong text-chesel-light hover:text-red-400 rounded-2xl border border-red-400/20 hover:border-red-400/50 transition-all duration-300 group font-medium"
         >
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-chesel-gray/50 group-hover:bg-chesel-green/20 transition-all duration-300">
+          <div className="flex items-center gap-4">
+            <div className="p-3 rounded-xl bg-red-500/20 group-hover:bg-red-500/30 transition-all duration-300">
               <LogOut className="h-5 w-5" />
             </div>
-            <span className="font-medium">Logout</span>
+            <span className="text-base">Logout</span>
           </div>
         </Button>
       </SidebarFooter>

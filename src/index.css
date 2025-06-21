@@ -3,93 +3,96 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* Glassmorphism Design System - Modern glass aesthetic with depth and transparency */
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    /* Glass Background Colors */
+    --background: 220 15% 5%;
+    --foreground: 0 0% 95%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    /* Glass Card System */
+    --card: 220 15% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    /* Glass Popover System */
+    --popover: 220 15% 10%;  
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 142 76% 36%;
-    --primary-foreground: 355 7% 97%;
+    /* Primary Glass Colors - Electric Blue */
+    --primary: 210 100% 56%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary Glass Elements */
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    /* Muted Glass Elements */
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 5% 65%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 355 7% 97%;
+    /* Accent Glass - Cyan Glow */
+    --accent: 180 100% 50%;
+    --accent-foreground: 220 15% 5%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Destructive Glass */
+    --destructive: 0 85% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 142 76% 36%;
+    /* Glass Borders and Inputs */
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 210 100% 56%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 142 76% 36%;
-    --sidebar-primary-foreground: 355 7% 97%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 142 76% 36%;
+    /* Sidebar Glass System */
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 210 100% 56%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 210 100% 56%;
 
-    /* Custom Chesel Brand Colors */
-    --chesel-green: 142 76% 36%;
-    --chesel-dark: 240 10% 3.9%;
-    --chesel-gray: 240 3.7% 15.9%;
-    --chesel-light: 0 0% 98%;
+    /* Custom Chesel Glass Brand Colors */
+    --chesel-primary: 210 100% 56%;
+    --chesel-secondary: 180 100% 50%;
+    --chesel-dark: 220 15% 5%;
+    --chesel-glass: 220 15% 8%;
+    --chesel-light: 0 0% 95%;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 142 76% 36%;
-    --primary-foreground: 355 7% 97%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 142 76% 36%;
-    --accent-foreground: 355 7% 97%;
-
-    --destructive: 0 62.8% 30.6%;
+    /* Same colors for consistent dark glass theme */
+    --background: 220 15% 5%;
+    --foreground: 0 0% 95%;
+    --card: 220 15% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 220 15% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 210 100% 56%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 5% 65%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 220 15% 5%;
+    --destructive: 0 85% 60%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 142 76% 36%;
-    
-    --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 142 76% 36%;
-    --sidebar-primary-foreground: 355 7% 97%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 142 76% 36%;
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 210 100% 56%;
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 210 100% 56%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 210 100% 56%;
   }
 }
 
@@ -101,32 +104,128 @@
   body {
     @apply bg-background text-foreground;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(135deg, 
+      hsl(220, 15%, 5%) 0%, 
+      hsl(220, 20%, 8%) 50%, 
+      hsl(210, 15%, 10%) 100%);
+    background-attachment: fixed;
   }
 }
 
-/* Custom utility classes for Chesel brand */
+/* Glassmorphism Utility Classes */
 @layer utilities {
-  .bg-chesel-green {
-    background-color: hsl(var(--chesel-green));
+  /* Primary Glass Effects */
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
+  }
+  
+  .glass-card-strong {
+    @apply bg-white/15 backdrop-blur-2xl border border-white/30 shadow-2xl;
+  }
+  
+  .glass-sidebar {
+    @apply bg-black/20 backdrop-blur-xl border-r border-white/10;
+  }
+  
+  .glass-nav {
+    @apply bg-black/30 backdrop-blur-xl border-t border-white/10;
+  }
+  
+  .glass-button {
+    @apply bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-all duration-300;
+  }
+  
+  .glass-button-primary {
+    @apply bg-blue-500/20 hover:bg-blue-500/30 backdrop-blur-sm border border-blue-400/30 text-blue-100 transition-all duration-300;
+  }
+  
+  .glass-input {
+    @apply bg-white/5 backdrop-blur-sm border border-white/20 focus:border-blue-400/50 focus:bg-white/10 transition-all duration-300;
+  }
+  
+  /* Brand Colors with Glass Effect */
+  .bg-chesel-primary {
+    background-color: hsl(var(--chesel-primary));
+  }
+  
+  .bg-chesel-secondary {
+    background-color: hsl(var(--chesel-secondary));
   }
   
   .bg-chesel-dark {
     background-color: hsl(var(--chesel-dark));
   }
   
-  .bg-chesel-gray {
-    background-color: hsl(var(--chesel-gray));
+  .bg-chesel-glass {
+    background-color: hsl(var(--chesel-glass));
   }
   
-  .text-chesel-green {
-    color: hsl(var(--chesel-green));
+  .text-chesel-primary {
+    color: hsl(var(--chesel-primary));
+  }
+  
+  .text-chesel-secondary {
+    color: hsl(var(--chesel-secondary));
   }
   
   .text-chesel-light {
     color: hsl(var(--chesel-light));
   }
   
-  .border-chesel-green {
-    border-color: hsl(var(--chesel-green));
+  .border-chesel-primary {
+    border-color: hsl(var(--chesel-primary));
+  }
+  
+  .border-chesel-secondary {
+    border-color: hsl(var(--chesel-secondary));
+  }
+  
+  /* Glass Glow Effects */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--chesel-primary) / 0.3);
+  }
+  
+  .glow-secondary {
+    box-shadow: 0 0 20px hsl(var(--chesel-secondary) / 0.3);
+  }
+  
+  /* Frosted Glass Animation */
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-2xl;
+  }
+}
+
+/* Custom Glass Animations */
+@layer components {
+  .glass-fade-in {
+    animation: glassSlideIn 0.6s cubic-bezier(0.23, 1, 0.320, 1) forwards;
+  }
+  
+  @keyframes glassSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      backdrop-filter: blur(0px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      backdrop-filter: blur(16px);
+    }
+  }
+  
+  .glass-pulse {
+    animation: glassPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes glassPulse {
+    0%, 100% {
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+    }
+    50% {
+      background-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+    }
   }
 }

@@ -17,8 +17,8 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeTab, onTabChange }) => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-slate-800/95 backdrop-blur-sm border-t border-slate-700">
-      <div className="flex justify-around items-center py-2">
+    <div className="fixed bottom-0 left-0 right-0 glass-nav backdrop-blur-2xl border-t border-white/10">
+      <div className="flex justify-around items-center py-3 px-2">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -27,13 +27,13 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeTab, onTabChange }) => {
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              className={`flex flex-col items-center space-y-1 py-2 px-4 rounded-lg transition-all duration-300 ${
+              className={`flex flex-col items-center space-y-1 py-3 px-4 rounded-2xl transition-all duration-300 ${
                 isActive 
-                  ? 'text-blue-400 shadow-lg shadow-blue-500/20 bg-blue-500/10' 
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-700/50'
+                  ? 'text-chesel-primary glass-card-strong glow-primary scale-105' 
+                  : 'text-blue-300/70 hover:text-chesel-primary glass-button hover:scale-105'
               }`}
             >
-              <Icon className={`w-5 h-5 ${isActive ? 'drop-shadow-sm' : ''}`} />
+              <Icon className={`w-6 h-6 ${isActive ? 'drop-shadow-lg' : ''}`} />
               <span className="text-xs font-medium">{tab.label}</span>
             </button>
           );

@@ -1,148 +1,142 @@
 
-import React, { useState } from 'react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { CheckCircle, Target, Scan, Camera } from 'lucide-react';
-import ProgressMeter from '@/components/ui/progress-meter';
+import React from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ProgressMeter } from '@/components/ui/progress-meter';
+import { Calendar, Trophy, Target, TrendingUp } from 'lucide-react';
 
-const DailyProtocol: React.FC = () => {
-  const [isCompleted, setIsCompleted] = useState(false);
-  const currentDate = new Date().toLocaleDateString();
+const DailyProtocol = () => {
+  const dailyScores = [
+    { category: 'Fitness', score: 85, color: '#3b82f6', icon: '💪' },
+    { category: 'Fashion', score: 72, color: '#8b5cf6', icon: '👔' },
+    { category: 'Body Care', score: 91, color: '#06b6d4', icon: '🧴' },
+    { category: 'Presence', score: 78, color: '#10b981', icon: '⚡' },
+  ];
 
-  const handleComplete = () => {
-    setIsCompleted(true);
-  };
-
-  const handleScanFood = () => {
-    console.log('Food scanner activated');
-    // TODO: Implement food scanning functionality
-  };
-
-  // Sample data for the meters
-  const metricsData = [
-    { label: 'Calories Left', value: 1850, max: 2200, color: 'blue' as const },
-    { label: 'Protein', value: 45, max: 120, color: 'green' as const },
-    { label: 'Carbs', value: 180, max: 250, color: 'orange' as const },
-    { label: 'Fat', value: 35, max: 80, color: 'purple' as const },
+  const todayTasks = [
+    { task: 'Morning Workout', completed: true, time: '7:00 AM' },
+    { task: 'Skincare Routine', completed: true, time: '8:30 AM' },
+    { task: 'Outfit Planning', completed: false, time: '9:00 AM' },
+    { task: 'Posture Check', completed: false, time: '2:00 PM' },
+    { task: 'Evening Meditation', completed: false, time: '8:00 PM' },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6 pb-24">
-      <div className="max-w-2xl mx-auto space-y-6">
-        {/* Header */}
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold text-white">Chesel</h1>
-          <p className="text-slate-300">{currentDate}</p>
-        </div>
-
-        {/* Food Scanner Card */}
-        <Card className="p-6 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 shadow-2xl">
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-2">Scan Your Food</h3>
-              <p className="text-slate-300 text-sm">Track calories instantly</p>
-            </div>
-            <Button
-              onClick={handleScanFood}
-              className="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              <Scan className="h-6 w-6" />
-            </Button>
+    <div className="min-h-screen p-6 pb-24 space-y-6">
+      {/* Header Section */}
+      <div className="glass-card-strong rounded-3xl p-6 glow-primary">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h1 className="text-3xl font-bold text-chesel-light mb-2">
+              Daily Protocol
+            </h1>
+            <p className="text-blue-300/80 text-lg">
+              {new Date().toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })}
+            </p>
           </div>
-        </Card>
-
-        {/* Nutrition Meters */}
-        <Card className="p-6 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 shadow-2xl">
-          <h3 className="text-xl font-semibold text-white mb-6 text-center">Today's Progress</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {metricsData.map((metric, index) => (
-              <ProgressMeter
-                key={metric.label}
-                value={metric.value}
-                max={metric.max}
-                label={metric.label}
-                color={metric.color}
-                size="md"
+          <div className="flex gap-3">
+            {/* Food Scanner Button */}
+            <button className="glass-button-primary p-4 rounded-2xl hover:scale-110 transition-all duration-300 glow-primary">
+              <img 
+                src="/images/icons/scanner-qr.svg" 
+                alt="Food Scanner" 
+                className="h-8 w-8 filter brightness-0 invert"
+                title="Scan Food for Calories"
               />
-            ))}
+            </button>
+            <div className="glass-button p-4 rounded-2xl">
+              <Calendar className="h-8 w-8 text-blue-300" />
+            </div>
           </div>
-        </Card>
+        </div>
+        
+        {/* Overall Score */}
+        <div className="text-center">
+          <div className="text-5xl font-bold text-chesel-primary mb-2">81</div>
+          <div className="text-blue-300/80 text-lg">Overall Score</div>
+        </div>
+      </div>
 
-        {/* Daily Protocol Tasks */}
-        <Card className="p-8 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 shadow-2xl">
-          <div className="space-y-6">
-            <div className="flex items-center space-x-3">
-              <Target className="w-6 h-6 text-blue-400" />
-              <h2 className="text-xl font-semibold text-white">Today's Protocol</h2>
-            </div>
-
-            <div className="space-y-4">
-              <div className="bg-slate-700/30 p-4 rounded-lg border border-slate-600/30">
-                <h3 className="font-medium text-blue-400 mb-2">Task 1 (Fitness)</h3>
-                <p className="text-slate-200">
-                  Your analysis indicates a slight pectoral imbalance. Add one additional set of incline dumbbell press to your next workout.
-                </p>
+      {/* Score Meters Grid */}
+      <div className="grid grid-cols-2 gap-4">
+        {dailyScores.map((item) => (
+          <Card key={item.category} className="glass-card border-white/10 rounded-2xl overflow-hidden">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-chesel-light text-lg flex items-center gap-2">
+                <span className="text-2xl">{item.icon}</span>
+                {item.category}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <div className="flex items-center justify-center">
+                <ProgressMeter
+                  value={item.score}
+                  size={100}
+                  strokeWidth={8}
+                  color={item.color}
+                />
               </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
 
-              <div className="bg-slate-700/30 p-4 rounded-lg border border-slate-600/30">
-                <h3 className="font-medium text-purple-400 mb-2">Task 2 (Presence)</h3>
-                <p className="text-slate-200">
-                  In your next phone call, consciously lower your vocal pitch by 10%. Project authority.
-                </p>
-              </div>
-            </div>
-
-            <Button
-              onClick={handleComplete}
-              disabled={isCompleted}
-              className={`w-full py-3 transition-all duration-300 ${
-                isCompleted 
-                  ? 'bg-green-600 hover:bg-green-600 text-white' 
-                  : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl'
+      {/* Daily Tasks */}
+      <Card className="glass-card-strong border-white/10 rounded-2xl">
+        <CardHeader>
+          <CardTitle className="text-chesel-light text-xl flex items-center gap-3">
+            <Target className="h-6 w-6 text-chesel-primary" />
+            Today's Tasks
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {todayTasks.map((task, index) => (
+            <div
+              key={index}
+              className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
+                task.completed 
+                  ? 'glass-button-primary text-blue-100' 
+                  : 'glass-button text-blue-300 hover:glass-card'
               }`}
             >
-              {isCompleted ? (
-                <div className="flex items-center justify-center space-x-2">
-                  <CheckCircle className="w-5 h-5" />
-                  <span>Completed</span>
+              <div className="flex items-center gap-3">
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                  task.completed 
+                    ? 'bg-chesel-primary border-chesel-primary' 
+                    : 'border-blue-400/50'
+                }`}>
+                  {task.completed && <div className="w-2 h-2 bg-white rounded-full"></div>}
                 </div>
-              ) : (
-                'Mark as Complete'
-              )}
-            </Button>
-          </div>
-        </Card>
+                <span className={`font-medium ${task.completed ? 'line-through opacity-75' : ''}`}>
+                  {task.task}
+                </span>
+              </div>
+              <span className="text-sm opacity-70">{task.time}</span>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
 
-        {/* Overall Score Meter */}
-        <Card className="p-6 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 shadow-2xl">
-          <h3 className="text-xl font-semibold text-white mb-6 text-center">Overall Score</h3>
-          <div className="flex justify-center">
-            <ProgressMeter
-              value={78}
-              max={100}
-              label="Total Score"
-              color="green"
-              size="lg"
-            />
-          </div>
-          <div className="mt-6 grid grid-cols-2 gap-4 text-center">
-            <div className="bg-slate-700/30 p-3 rounded-lg">
-              <div className="text-blue-400 font-semibold">Fitness</div>
-              <div className="text-slate-300">85%</div>
-            </div>
-            <div className="bg-slate-700/30 p-3 rounded-lg">
-              <div className="text-purple-400 font-semibold">Fashion</div>
-              <div className="text-slate-300">72%</div>
-            </div>
-            <div className="bg-slate-700/30 p-3 rounded-lg">
-              <div className="text-green-400 font-semibold">Body</div>
-              <div className="text-slate-300">80%</div>
-            </div>
-            <div className="bg-slate-700/30 p-3 rounded-lg">
-              <div className="text-orange-400 font-semibold">Presence</div>
-              <div className="text-slate-300">75%</div>
-            </div>
-          </div>
+      {/* Progress Stats */}
+      <div className="grid grid-cols-2 gap-4">
+        <Card className="glass-card border-white/10 rounded-2xl">
+          <CardContent className="p-6 text-center">
+            <Trophy className="h-8 w-8 text-yellow-400 mx-auto mb-3" />
+            <div className="text-2xl font-bold text-chesel-light mb-1">12</div>
+            <div className="text-blue-300/80 text-sm">Goals Achieved</div>
+          </CardContent>
+        </Card>
+        
+        <Card className="glass-card border-white/10 rounded-2xl">
+          <CardContent className="p-6 text-center">
+            <TrendingUp className="h-8 w-8 text-green-400 mx-auto mb-3" />
+            <div className="text-2xl font-bold text-chesel-light mb-1">+5%</div>
+            <div className="text-blue-300/80 text-sm">Weekly Growth</div>
+          </CardContent>
         </Card>
       </div>
     </div>
