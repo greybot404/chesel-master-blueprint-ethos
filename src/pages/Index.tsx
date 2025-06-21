@@ -40,9 +40,9 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 relative">
+    <div className="min-h-screen bg-chesel-dark relative">
       <div className="absolute top-4 left-4 z-50">
-        <SidebarTrigger className="bg-slate-800/90 hover:bg-slate-700 border border-slate-600/50 text-white backdrop-blur-sm transition-all duration-300 hover:scale-105" />
+        <SidebarTrigger className="bg-chesel-gray/90 hover:bg-chesel-green/20 border border-chesel-green/50 text-chesel-light backdrop-blur-sm transition-all duration-300 hover:scale-105" />
       </div>
       {renderActiveModule()}
       <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
