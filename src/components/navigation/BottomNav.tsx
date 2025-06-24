@@ -17,7 +17,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeTab, onTabChange }) => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-black">
       <div className="flex justify-around items-center py-2 px-2">
         {tabs.map((tab) => {
           const Icon = tab.icon;
@@ -30,7 +30,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeTab, onTabChange }) => {
               className={`flex flex-col items-center space-y-1 py-3 px-4 rounded-xl transition-all duration-200 ${
                 isActive 
                   ? 'bg-black text-white' 
-                  : 'text-gray-600 hover:bg-gray-100 hover:text-black'
+                  : 'text-black hover:bg-black hover:text-white'
               }`}
             >
               <Icon className="w-6 h-6" />

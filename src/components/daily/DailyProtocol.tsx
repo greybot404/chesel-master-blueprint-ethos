@@ -6,15 +6,15 @@ import { ProgressMeter } from '@/components/ui/progress-meter';
 const DailyProtocol = () => {
   const modules = [
     { name: 'Fitness', score: 76, color: '#000000' },
-    { name: 'Fashion', score: 82, color: '#374151' },
-    { name: 'Body', score: 68, color: '#6B7280' },
-    { name: 'Presence', score: 91, color: '#10B981' },
+    { name: 'Fashion', score: 82, color: '#000000' },
+    { name: 'Body', score: 68, color: '#000000' },
+    { name: 'Presence', score: 91, color: '#000000' },
   ];
 
   const quickActions = [
     { name: 'Food Scanner', icon: Scan, color: 'bg-black', textColor: 'text-white' },
-    { name: 'Photo Upload', icon: Camera, color: 'bg-gray-100', textColor: 'text-gray-700' },
-    { name: 'Quick Log', icon: Plus, color: 'bg-gray-100', textColor: 'text-gray-700' },
+    { name: 'Photo Upload', icon: Camera, color: 'bg-white border border-black', textColor: 'text-black' },
+    { name: 'Quick Log', icon: Plus, color: 'bg-white border border-black', textColor: 'text-black' },
   ];
 
   return (
@@ -33,7 +33,7 @@ const DailyProtocol = () => {
             value={79} 
             size={120} 
             color="#000000"
-            backgroundColor="rgba(229, 231, 235, 1)"
+            backgroundColor="#ffffff"
             showValue={true}
           />
         </div>
@@ -50,7 +50,7 @@ const DailyProtocol = () => {
                 value={module.score} 
                 size={80} 
                 color={module.color}
-                backgroundColor="rgba(229, 231, 235, 1)"
+                backgroundColor="#ffffff"
                 showValue={true}
               />
               <p className="flat-caption mt-2 font-medium">{module.name}</p>
@@ -70,7 +70,7 @@ const DailyProtocol = () => {
                 key={action.name}
                 className={`w-full flex items-center gap-4 p-4 rounded-xl ${action.color} ${action.textColor} hover:scale-105 transition-all duration-200`}
               >
-                <div className="p-2 bg-white/20 rounded-lg">
+                <div className="p-2 bg-black/10 border border-current rounded-lg">
                   <Icon className="w-5 h-5" />
                 </div>
                 <span className="font-medium">{action.name}</span>

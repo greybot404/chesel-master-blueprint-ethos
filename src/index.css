@@ -3,11 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Flat Design 2.0 System - Clean, modern flat interface with minimal depth */
+/* Pure Black & White Design System */
 
 @layer base {
   :root {
-    /* Flat Design 2.0 Colors */
+    /* Pure Black & White Colors */
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
 
@@ -23,25 +23,25 @@
     --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary Elements - Gray */
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 45%;
+    /* Secondary Elements - White with Black Text */
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 0%;
 
     /* Muted Elements */
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 0%;
 
-    /* Accent - Green for success states */
-    --accent: 142 71% 45%;
+    /* Accent - Black */
+    --accent: 0 0% 0%;
     --accent-foreground: 0 0% 100%;
 
-    /* Destructive */
-    --destructive: 0 85% 60%;
+    /* Destructive - Black */
+    --destructive: 0 0% 0%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Borders and Inputs */
-    --border: 0 0% 89%;
-    --input: 0 0% 89%;
+    /* Borders and Inputs - Black */
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
     --ring: 0 0% 0%;
 
     --radius: 0.75rem;
@@ -51,14 +51,14 @@
     --sidebar-foreground: 0 0% 0%;
     --sidebar-primary: 0 0% 0%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 45%;
-    --sidebar-border: 0 0% 89%;
+    --sidebar-accent: 0 0% 100%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 0%;
     --sidebar-ring: 0 0% 0%;
   }
 
   .dark {
-    /* Dark mode - same clean approach */
+    /* Dark mode - inverted black and white */
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
     --card: 0 0% 0%;
@@ -67,24 +67,24 @@
     --popover-foreground: 0 0% 100%;
     --primary: 0 0% 100%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 4%;
-    --secondary-foreground: 0 0% 55%;
-    --muted: 0 0% 4%;
-    --muted-foreground: 0 0% 55%;
-    --accent: 142 71% 45%;
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 0%;
+    --muted-foreground: 0 0% 100%;
+    --accent: 0 0% 100%;
     --accent-foreground: 0 0% 0%;
-    --destructive: 0 85% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 11%;
-    --input: 0 0% 11%;
+    --destructive: 0 0% 100%;
+    --destructive-foreground: 0 0% 0%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
     --ring: 0 0% 100%;
     --sidebar-background: 0 0% 0%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 0 0% 100%;
     --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 4%;
-    --sidebar-accent-foreground: 0 0% 55%;
-    --sidebar-border: 0 0% 11%;
+    --sidebar-accent: 0 0% 0%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 100%;
     --sidebar-ring: 0 0% 100%;
   }
 }
@@ -101,28 +101,28 @@
   }
 }
 
-/* Flat Design 2.0 Utility Classes */
+/* Pure Black & White Utility Classes */
 @layer utilities {
   /* Card Components */
   .flat-card {
-    @apply bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl shadow-lg;
+    @apply bg-white border border-black rounded-2xl;
   }
   
   .flat-card-solid {
-    @apply bg-white border border-gray-200 rounded-2xl shadow-sm;
+    @apply bg-white border border-black rounded-2xl;
   }
   
   .flat-upload-card {
-    @apply border-2 border-dashed border-gray-300 rounded-2xl hover:border-gray-400 transition-all duration-300;
+    @apply border-2 border-dashed border-black rounded-2xl hover:bg-black hover:text-white transition-all duration-300;
   }
   
   /* Button Variants */
   .flat-btn-primary {
-    @apply bg-black text-white py-3 px-6 rounded-xl font-medium hover:bg-gray-800 transition-all duration-200;
+    @apply bg-black text-white py-3 px-6 rounded-xl font-medium hover:bg-white hover:text-black hover:border hover:border-black transition-all duration-200;
   }
   
   .flat-btn-secondary {
-    @apply bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-6 rounded-xl font-medium transition-colors duration-200;
+    @apply bg-white hover:bg-black text-black hover:text-white border border-black py-3 px-6 rounded-xl font-medium transition-colors duration-200;
   }
   
   .flat-btn-nav-active {
@@ -130,17 +130,17 @@
   }
   
   .flat-btn-nav-inactive {
-    @apply text-gray-600 hover:bg-gray-100 py-3 px-4 rounded-xl font-medium transition-colors duration-200;
+    @apply text-black hover:bg-black hover:text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200;
   }
   
   /* Input Fields */
   .flat-input {
-    @apply px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-black focus:border-transparent transition-all duration-200;
+    @apply px-4 py-3 border border-black rounded-xl focus:ring-2 focus:ring-black focus:border-black transition-all duration-200 bg-white text-black;
   }
   
   /* Progress Bars */
   .flat-progress-bg {
-    @apply h-2 bg-gray-200 rounded-full;
+    @apply h-2 bg-white border border-black rounded-full;
   }
   
   .flat-progress-fill {
@@ -149,32 +149,32 @@
   
   /* Typography Scale */
   .flat-h1 {
-    @apply text-3xl font-bold text-gray-900;
+    @apply text-3xl font-bold text-black;
   }
   
   .flat-h2 {
-    @apply text-2xl font-semibold text-gray-900;
+    @apply text-2xl font-semibold text-black;
   }
   
   .flat-h3 {
-    @apply text-xl font-semibold text-gray-900;
+    @apply text-xl font-semibold text-black;
   }
   
   .flat-h4 {
-    @apply text-lg font-semibold text-gray-900;
+    @apply text-lg font-semibold text-black;
   }
   
   .flat-body {
-    @apply text-base text-gray-600;
+    @apply text-base text-black;
   }
   
   .flat-caption {
-    @apply text-xs text-gray-500;
+    @apply text-xs text-black;
   }
   
   /* Layout Patterns */
   .flat-module {
-    @apply p-6 space-y-6 flex flex-col min-h-full;
+    @apply p-6 space-y-6 flex flex-col min-h-full bg-white;
   }
   
   .flat-grid {
@@ -190,7 +190,7 @@
   }
 }
 
-/* Clean animations for Flat Design 2.0 */
+/* Clean animations for Pure Black & White Design */
 @layer components {
   .flat-transition {
     @apply transition-all duration-200;

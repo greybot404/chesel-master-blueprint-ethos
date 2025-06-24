@@ -16,7 +16,7 @@ export const ProgressMeter: React.FC<ProgressMeterProps> = ({
   size = 120,
   strokeWidth = 8,
   color = '#000000',
-  backgroundColor = 'rgba(229, 231, 235, 1)',
+  backgroundColor = '#ffffff',
   showValue = true,
   className = '',
 }) => {
@@ -38,8 +38,8 @@ export const ProgressMeter: React.FC<ProgressMeterProps> = ({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke={backgroundColor}
-          strokeWidth={strokeWidth}
+          stroke="#000000"
+          strokeWidth={2}
           fill="transparent"
         />
         
@@ -68,7 +68,7 @@ export const ProgressMeter: React.FC<ProgressMeterProps> = ({
             >
               {Math.round(normalizedValue)}
             </div>
-            <div className="text-xs text-gray-500 font-medium">
+            <div className="text-xs text-black font-medium">
               SCORE
             </div>
           </div>
