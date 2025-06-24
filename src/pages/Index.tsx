@@ -40,25 +40,18 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-chesel-dark relative overflow-hidden">
-      {/* Glassmorphism Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-3/4 left-1/2 w-64 h-64 bg-purple-500/5 rounded-full blur-2xl"></div>
-      </div>
-      
-      {/* Glass Sidebar Trigger */}
+    <div className="min-h-screen bg-white">
+      {/* Sidebar Trigger */}
       <div className="absolute top-4 left-4 z-50">
-        <SidebarTrigger className="glass-button-primary glow-primary rounded-xl p-3 hover:scale-110 transition-all duration-300" />
+        <SidebarTrigger className="flat-btn-secondary rounded-xl p-3 hover:scale-110 transition-all duration-200" />
       </div>
       
-      {/* Main Content with Glass Effect */}
-      <div className="relative z-10">
+      {/* Main Content */}
+      <div className="relative">
         {renderActiveModule()}
       </div>
       
-      {/* Glass Bottom Navigation */}
+      {/* Bottom Navigation */}
       <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
     </div>
   );
