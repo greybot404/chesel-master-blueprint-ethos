@@ -69,20 +69,20 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar className="border-r border-black bg-white">
-      <SidebarHeader className="p-6 border-b border-black">
-        <div className="flex items-center gap-3">
-          <Avatar className="h-12 w-12 border-2 border-black">
+    <Sidebar className="border-r border-gray-200 bg-white">
+      <SidebarHeader className="p-6 border-b border-gray-200">
+        <div className="blueprint-flex-center gap-3">
+          <Avatar className="h-12 w-12 border-2 border-gray-200">
             <AvatarImage src="/placeholder.svg" alt="User" />
-            <AvatarFallback className="bg-white text-black border border-black">
+            <AvatarFallback className="bg-gray-100 text-gray-900 border border-gray-200">
               <img src="/images/icons/profile-user.svg" alt="Profile" className="h-6 w-6" />
             </AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
-            <h3 className="flat-h4 truncate">
+            <h3 className="blueprint-h4 truncate">
               John Doe
             </h3>
-            <p className="flat-caption truncate">
+            <p className="blueprint-caption truncate">
               Premium Member
             </p>
           </div>
@@ -97,13 +97,13 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   onClick={() => console.log('Profile clicked')}
-                  className="w-full h-12 px-4 flat-card-solid hover:bg-black hover:text-white transition-all duration-200 group"
+                  className="w-full h-12 px-4 blueprint-card-standard hover:bg-gray-100 blueprint-transition group"
                 >
-                  <div className="flex items-center gap-3 w-full">
-                    <div className="p-2 bg-white border border-black rounded-lg">
+                  <div className="blueprint-flex-center gap-3 w-full">
+                    <div className="p-2 bg-gray-100 border border-gray-200 rounded-lg">
                       <img src="/images/icons/profile-user.svg" alt="Profile" className="h-5 w-5" />
                     </div>
-                    <span className="flat-body font-medium">Profile</span>
+                    <span className="blueprint-body font-medium">Profile</span>
                   </div>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -111,13 +111,13 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   onClick={() => console.log('My Space clicked')}
-                  className="w-full h-12 px-4 flat-card-solid hover:bg-black hover:text-white transition-all duration-200 group"
+                  className="w-full h-12 px-4 blueprint-card-standard hover:bg-gray-100 blueprint-transition group"
                 >
-                  <div className="flex items-center gap-3 w-full">
-                    <div className="p-2 bg-white border border-black rounded-lg">
+                  <div className="blueprint-flex-center gap-3 w-full">
+                    <div className="p-2 bg-gray-100 border border-gray-200 rounded-lg">
                       <img src="/images/icons/my-space.svg" alt="My Space" className="h-5 w-5" />
                     </div>
-                    <span className="flat-body font-medium">My Space</span>
+                    <span className="blueprint-body font-medium">My Space</span>
                   </div>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -133,13 +133,13 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     onClick={item.onClick}
-                    className="w-full h-12 px-4 flat-card-solid hover:bg-black hover:text-white transition-all duration-200 group"
+                    className="w-full h-12 px-4 blueprint-card-standard hover:bg-gray-100 blueprint-transition group"
                   >
-                    <div className="flex items-center gap-3 w-full">
-                      <div className="p-2 bg-white border border-black rounded-lg">
-                        <item.icon className="h-5 w-5 text-black group-hover:text-white" />
+                    <div className="blueprint-flex-center gap-3 w-full">
+                      <div className="p-2 bg-gray-100 border border-gray-200 rounded-lg">
+                        <item.icon className="h-5 w-5 text-gray-900" />
                       </div>
-                      <span className="flat-body font-medium">{item.title}</span>
+                      <span className="blueprint-body font-medium">{item.title}</span>
                     </div>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -151,7 +151,7 @@ export function AppSidebar() {
         {/* Custom Shortcuts */}
         {shortcuts.length > 0 && (
           <SidebarGroup>
-            <SidebarGroupLabel className="flat-caption uppercase tracking-wider px-3 mb-3 font-semibold text-black">
+            <SidebarGroupLabel className="blueprint-caption uppercase tracking-wider px-3 mb-3 font-semibold text-gray-500">
               My Shortcuts
             </SidebarGroupLabel>
             <SidebarGroupContent>
@@ -160,20 +160,20 @@ export function AppSidebar() {
                   <SidebarMenuItem key={shortcut.id}>
                     <SidebarMenuButton
                       onClick={() => console.log(`${shortcut.title} shortcut clicked`)}
-                      className="w-full h-12 px-4 flat-card-solid hover:bg-black hover:text-white transition-all duration-200 group relative"
+                      className="w-full h-12 px-4 blueprint-card-standard hover:bg-gray-100 blueprint-transition group relative"
                     >
-                      <div className="flex items-center gap-3 w-full">
-                        <div className="p-2 bg-white border border-black rounded-lg">
+                      <div className="blueprint-flex-center gap-3 w-full">
+                        <div className="p-2 bg-gray-100 border border-gray-200 rounded-lg">
                           <img src={shortcut.icon} alt={shortcut.title} className="h-5 w-5" />
                         </div>
-                        <span className="flat-body font-medium">{shortcut.title}</span>
+                        <span className="blueprint-body font-medium">{shortcut.title}</span>
                       </div>
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           removeShortcut(shortcut.id);
                         }}
-                        className="absolute right-4 top-4 text-black hover:text-white opacity-0 group-hover:opacity-100 transition-all text-lg font-bold"
+                        className="absolute right-4 top-4 text-gray-600 hover:text-gray-900 opacity-0 group-hover:opacity-100 blueprint-transition text-lg font-bold"
                       >
                         ×
                       </button>
@@ -192,34 +192,34 @@ export function AppSidebar() {
               <DialogTrigger asChild>
                 <Button
                   variant="outline"
-                  className="w-full h-12 flat-upload-card text-black hover:text-white transition-all duration-200 font-medium"
+                  className="w-full h-12 blueprint-card-upload text-gray-700 hover:text-gray-900 blueprint-transition font-medium"
                 >
                   <Plus className="h-5 w-5 mr-3" />
                   Add Shortcut
                 </Button>
               </DialogTrigger>
-              <DialogContent className="flat-card-solid border-black bg-white">
+              <DialogContent className="blueprint-card-standard border-gray-200 bg-white">
                 <DialogHeader>
-                  <DialogTitle className="flat-h3">Add Custom Shortcut</DialogTitle>
+                  <DialogTitle className="blueprint-h3">Add Custom Shortcut</DialogTitle>
                 </DialogHeader>
                 <div className="space-y-6 pt-4">
                   <Input
                     placeholder="Shortcut name (e.g., Personal Stylist)"
                     value={shortcutName}
                     onChange={(e) => setShortcutName(e.target.value)}
-                    className="flat-input"
+                    className="blueprint-input"
                   />
                   <div className="flex gap-3">
                     <Button
                       onClick={addShortcut}
-                      className="flex-1 flat-btn-primary"
+                      className="flex-1 blueprint-btn-primary"
                     >
                       Add Shortcut
                     </Button>
                     <Button
                       variant="outline"
                       onClick={() => setIsAddingShortcut(false)}
-                      className="flex-1 flat-btn-secondary"
+                      className="flex-1 blueprint-btn-secondary"
                     >
                       Cancel
                     </Button>
@@ -238,13 +238,13 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     onClick={item.onClick}
-                    className="w-full h-12 px-4 flat-card-solid hover:bg-black hover:text-white transition-all duration-200 group"
+                    className="w-full h-12 px-4 blueprint-card-standard hover:bg-gray-100 blueprint-transition group"
                   >
-                    <div className="flex items-center gap-3 w-full">
-                      <div className="p-2 bg-white border border-black rounded-lg">
-                        <item.icon className="h-5 w-5 text-black group-hover:text-white" />
+                    <div className="blueprint-flex-center gap-3 w-full">
+                      <div className="p-2 bg-gray-100 border border-gray-200 rounded-lg">
+                        <item.icon className="h-5 w-5 text-gray-900" />
                       </div>
-                      <span className="flat-body font-medium">{item.title}</span>
+                      <span className="blueprint-body font-medium">{item.title}</span>
                     </div>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -254,16 +254,16 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="p-4 border-t border-black">
+      <SidebarFooter className="p-4 border-t border-gray-200">
         <Button
           onClick={handleLogout}
-          className="w-full h-12 flat-card-solid hover:bg-black text-black hover:text-white border border-black transition-all duration-200 group font-medium"
+          className="w-full h-12 blueprint-card-standard hover:bg-gray-100 text-gray-900 hover:text-gray-900 border border-gray-200 blueprint-transition group font-medium"
         >
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-white border border-black rounded-lg group-hover:bg-black group-hover:border-white transition-colors">
-              <LogOut className="h-5 w-5 group-hover:text-white" />
+          <div className="blueprint-flex-center gap-3">
+            <div className="p-2 bg-gray-100 border border-gray-200 rounded-lg group-hover:bg-gray-200 blueprint-transition">
+              <LogOut className="h-5 w-5" />
             </div>
-            <span className="flat-body font-medium">Logout</span>
+            <span className="blueprint-body font-medium">Logout</span>
           </div>
         </Button>
       </SidebarFooter>

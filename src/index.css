@@ -3,11 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Pure Black & White Design System */
+/* Design System based on Application Blueprint */
 
 @layer base {
   :root {
-    /* Pure Black & White Colors */
+    /* Primary Colors - Black & White */
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
 
@@ -101,110 +101,132 @@
   }
 }
 
-/* Pure Black & White Utility Classes */
+/* Design System Utility Classes based on Blueprint */
 @layer utilities {
-  /* Card Components */
-  .flat-card {
-    @apply bg-white border border-black rounded-2xl;
+  /* Card Design Patterns */
+  .blueprint-card-standard {
+    @apply bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-6 shadow-lg;
   }
   
-  .flat-card-solid {
-    @apply bg-white border border-black rounded-2xl;
+  .blueprint-card-upload {
+    @apply border-2 border-dashed border-gray-300 rounded-2xl p-12 text-center hover:border-gray-400 transition-all duration-300;
   }
   
-  .flat-upload-card {
-    @apply border-2 border-dashed border-black rounded-2xl hover:bg-black hover:text-white transition-all duration-300;
+  .blueprint-card-score {
+    @apply bg-white border border-gray-200 rounded-2xl p-6;
   }
   
-  /* Button Variants */
-  .flat-btn-primary {
-    @apply bg-black text-white py-3 px-6 rounded-xl font-medium hover:bg-white hover:text-black hover:border hover:border-black transition-all duration-200;
+  /* Button Variants from Blueprint */
+  .blueprint-btn-primary {
+    @apply bg-black text-white py-3 rounded-xl font-medium hover:bg-gray-800 transition-all duration-200;
   }
   
-  .flat-btn-secondary {
-    @apply bg-white hover:bg-black text-black hover:text-white border border-black py-3 px-6 rounded-xl font-medium transition-colors duration-200;
+  .blueprint-btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 rounded-xl font-medium transition-colors;
   }
   
-  .flat-btn-nav-active {
-    @apply bg-black text-white py-3 px-4 rounded-xl font-medium;
+  .blueprint-btn-nav-active {
+    @apply bg-black text-white py-3 px-4 rounded-xl;
   }
   
-  .flat-btn-nav-inactive {
-    @apply text-black hover:bg-black hover:text-white py-3 px-4 rounded-xl font-medium transition-colors duration-200;
+  .blueprint-btn-nav-inactive {
+    @apply text-gray-600 hover:bg-gray-100 py-3 px-4 rounded-xl;
   }
   
-  /* Input Fields */
-  .flat-input {
-    @apply px-4 py-3 border border-black rounded-xl focus:ring-2 focus:ring-black focus:border-black transition-all duration-200 bg-white text-black;
+  /* Input Fields from Blueprint */
+  .blueprint-input {
+    @apply px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-black focus:border-transparent;
   }
   
-  /* Progress Bars */
-  .flat-progress-bg {
-    @apply h-2 bg-white border border-black rounded-full;
+  /* Progress Bars from Blueprint */
+  .blueprint-progress-bg {
+    @apply h-2 bg-gray-200 rounded-full;
   }
   
-  .flat-progress-fill {
+  .blueprint-progress-fill {
     @apply h-full bg-black rounded-full transition-all duration-300;
   }
   
-  /* Typography Scale */
-  .flat-h1 {
-    @apply text-3xl font-bold text-black;
+  .blueprint-progress-secondary {
+    @apply h-full bg-gray-700 rounded-full transition-all duration-300;
   }
   
-  .flat-h2 {
-    @apply text-2xl font-semibold text-black;
+  /* Typography Scale from Blueprint */
+  .blueprint-h1 {
+    @apply text-3xl font-bold text-gray-900;
   }
   
-  .flat-h3 {
-    @apply text-xl font-semibold text-black;
+  .blueprint-h2 {
+    @apply text-2xl font-semibold text-gray-900;
   }
   
-  .flat-h4 {
-    @apply text-lg font-semibold text-black;
+  .blueprint-h3 {
+    @apply text-xl font-semibold text-gray-900;
   }
   
-  .flat-body {
-    @apply text-base text-black;
+  .blueprint-h4 {
+    @apply text-lg font-semibold text-gray-900;
   }
   
-  .flat-caption {
-    @apply text-xs text-black;
+  .blueprint-body {
+    @apply text-base text-gray-900;
   }
   
-  /* Layout Patterns */
-  .flat-module {
-    @apply p-6 space-y-6 flex flex-col min-h-full bg-white;
+  .blueprint-body-sm {
+    @apply text-sm text-gray-600;
   }
   
-  .flat-grid {
+  .blueprint-caption {
+    @apply text-xs text-gray-500;
+  }
+  
+  /* Layout Patterns from Blueprint */
+  .blueprint-module {
+    @apply p-6 space-y-6 flex flex-col min-h-full;
+  }
+  
+  .blueprint-grid {
     @apply grid grid-cols-1 gap-4;
   }
   
-  .flat-flex-between {
+  .blueprint-flex-between {
     @apply flex items-center justify-between;
   }
   
-  .flat-flex-center {
+  .blueprint-flex-center {
     @apply flex items-center space-x-2;
+  }
+  
+  /* Glass Morphism Effects */
+  .blueprint-glass {
+    @apply bg-white/80 backdrop-blur-sm border border-gray-200/50;
+  }
+  
+  /* Success/Accent Colors */
+  .blueprint-success {
+    @apply text-green-500;
+  }
+  
+  .blueprint-success-bg {
+    @apply bg-green-500;
   }
 }
 
-/* Clean animations for Pure Black & White Design */
+/* Animations from Blueprint */
 @layer components {
-  .flat-transition {
+  .blueprint-transition {
     @apply transition-all duration-200;
   }
   
-  .flat-hover-scale {
+  .blueprint-hover-scale {
     @apply hover:scale-105 transition-transform duration-200;
   }
   
-  .flat-fade-in {
-    animation: flatFadeIn 0.3s ease-out forwards;
+  .blueprint-fade-in {
+    animation: blueprintFadeIn 0.3s ease-out forwards;
   }
   
-  @keyframes flatFadeIn {
+  @keyframes blueprintFadeIn {
     from {
       opacity: 0;
       transform: translateY(10px);

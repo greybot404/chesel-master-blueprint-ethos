@@ -38,7 +38,7 @@ export const ProgressMeter: React.FC<ProgressMeterProps> = ({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke="#000000"
+          stroke="#e5e7eb"
           strokeWidth={2}
           fill="transparent"
         />
@@ -68,7 +68,7 @@ export const ProgressMeter: React.FC<ProgressMeterProps> = ({
             >
               {Math.round(normalizedValue)}
             </div>
-            <div className="text-xs text-black font-medium">
+            <div className="text-xs text-gray-500 font-medium">
               SCORE
             </div>
           </div>
