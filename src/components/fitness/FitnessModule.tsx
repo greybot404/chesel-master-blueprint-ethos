@@ -1,137 +1,104 @@
 
 import React, { useState } from 'react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Upload, Target, Dumbbell } from 'lucide-react';
+import { Activity, Target, TrendingUp, Calendar } from 'lucide-react';
+import { ProgressMeter } from '@/components/ui/progress-meter';
 
-const FitnessModule: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState<'upload' | 'goal' | 'results'>('upload');
+const FitnessModule = () => {
+  const [activeMetric, setActiveMetric] = useState('strength');
 
-  const renderUploadStep = () => (
-    <div className="space-y-6">
-      <Card className="p-8 bg-slate-800/50 backdrop-blur-sm border-slate-700 text-center space-y-6">
-        <div className="w-16 h-16 mx-auto bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full flex items-center justify-center">
-          <Upload className="w-8 h-8 text-white" />
-        </div>
-        <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-white">Fitness Analysis</h2>
-          <p className="text-slate-300">
-            To begin, upload a clear, full-body physique photograph. Ensure lighting is consistent.
-          </p>
-        </div>
-        <Button 
-          onClick={() => setCurrentStep('goal')}
-          className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-3"
-        >
-          Upload Physique
-        </Button>
-      </Card>
-    </div>
-  );
+  const fitnessMetrics = [
+    { id: 'strength', name: 'Strength', score: 85, icon: Activity },
+    { id: 'cardio', name: 'Cardio', score: 72, icon: TrendingUp },
+    { id: 'flexibility', name: 'Flexibility', score: 68, icon: Target },
+    { id: 'endurance', name: 'Endurance', score: 79, icon: Calendar },
+  ];
 
-  const renderGoalStep = () => (
-    <div className="space-y-6">
-      <Card className="p-8 bg-slate-800/50 backdrop-blur-sm border-slate-700 space-y-6">
-        <div className="flex items-center space-x-3">
-          <Target className="w-6 h-6 text-blue-400" />
-          <h2 className="text-2xl font-bold text-white">Define Goal Vector</h2>
-        </div>
-        
-        <div className="space-y-4">
-          <div className="p-4 border border-slate-600 rounded-lg space-y-3">
-            <p className="text-slate-200">Upload a reference photo of your goal physique.</p>
-            <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600">
-              Upload Goal Image
-            </Button>
-          </div>
-          
-          <div className="text-center text-slate-400 font-medium">OR</div>
-          
-          <div className="p-4 border border-slate-600 rounded-lg space-y-3">
-            <p className="text-slate-200">Select a primary objective.</p>
-            <div className="grid grid-cols-1 gap-2">
-              <Button 
-                onClick={() => setCurrentStep('results')}
-                variant="outline" 
-                className="border-slate-600 text-slate-200 hover:bg-slate-700"
-              >
-                Build Muscle
-              </Button>
-              <Button 
-                onClick={() => setCurrentStep('results')}
-                variant="outline" 
-                className="border-slate-600 text-slate-200 hover:bg-slate-700"
-              >
-                Lose Fat
-              </Button>
-              <Button 
-                onClick={() => setCurrentStep('results')}
-                variant="outline" 
-                className="border-slate-600 text-slate-200 hover:bg-slate-700"
-              >
-                Improve Definition
-              </Button>
-            </div>
-          </div>
-        </div>
-      </Card>
-    </div>
-  );
-
-  const renderResultsStep = () => (
-    <div className="grid md:grid-cols-2 gap-6">
-      <Card className="p-6 bg-slate-800/50 backdrop-blur-sm border-slate-700">
-        <div className="text-center space-y-4">
-          <h3 className="text-lg font-semibold text-white">Physique Score</h3>
-          <div className="text-6xl font-bold text-blue-400">58</div>
-          <div className="text-sm text-slate-400">Overall Assessment</div>
-        </div>
-      </Card>
-      
-      <div className="space-y-4">
-        <Card className="p-6 bg-slate-800/50 backdrop-blur-sm border-slate-700">
-          <h3 className="font-semibold text-white mb-3">Critique</h3>
-          <p className="text-slate-300 text-sm">
-            Your upper body shows strong development, but a slight asymmetry is noted in the lats. 
-            Leanness is adequate but could be improved by 2-3% to reveal greater abdominal definition...
-          </p>
-        </Card>
-        
-        <Card className="p-6 bg-slate-800/50 backdrop-blur-sm border-slate-700">
-          <h3 className="font-semibold text-white mb-3">Action Plan: Workout Protocol</h3>
-          <div className="space-y-2">
-            <div className="flex items-center space-x-2">
-              <Dumbbell className="w-4 h-4 text-blue-400" />
-              <span className="text-slate-300 text-sm">Increase lat focus exercises</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Dumbbell className="w-4 h-4 text-blue-400" />
-              <span className="text-slate-300 text-sm">Add cardio for fat loss</span>
-            </div>
-          </div>
-        </Card>
-        
-        <Card className="p-6 bg-slate-800/50 backdrop-blur-sm border-slate-700">
-          <h3 className="font-semibold text-white mb-3">Action Plan: Supplement Stack</h3>
-          <div className="space-y-2">
-            <div className="text-slate-300 text-sm">• Creatine Monohydrate (5g daily)</div>
-            <div className="text-slate-300 text-sm">• L-Carnitine (2g pre-workout)</div>
-          </div>
-        </Card>
-      </div>
-    </div>
-  );
+  const workoutPlan = [
+    { day: 'Monday', focus: 'Upper Body', duration: '45 min', completed: true },
+    { day: 'Tuesday', focus: 'Cardio', duration: '30 min', completed: true },
+    { day: 'Wednesday', focus: 'Lower Body', duration: '45 min', completed: false },
+    { day: 'Thursday', focus: 'Rest', duration: '-', completed: false },
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6 pb-24">
-      <div className="max-w-4xl mx-auto space-y-6">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-white">Fitness Intelligence</h1>
+    <div className="blueprint-module pb-24">
+      {/* Header */}
+      <div className="text-center mb-8 mt-16">
+        <h1 className="blueprint-h1 mb-2">Fitness</h1>
+        <p className="blueprint-body-sm text-gray-600">Track your physical performance</p>
+      </div>
+
+      {/* Overall Fitness Score */}
+      <div className="blueprint-card-standard text-center mb-6">
+        <h2 className="blueprint-h3 mb-4">Overall Fitness Score</h2>
+        <div className="flex justify-center mb-4">
+          <ProgressMeter 
+            value={76} 
+            size={120} 
+            color="#10B981"
+            showValue={true}
+          />
         </div>
-        
-        {currentStep === 'upload' && renderUploadStep()}
-        {currentStep === 'goal' && renderGoalStep()}
-        {currentStep === 'results' && renderResultsStep()}
+        <p className="blueprint-body-sm blueprint-success">Keep pushing forward!</p>
+      </div>
+
+      {/* Fitness Metrics */}
+      <div className="blueprint-card-standard mb-6">
+        <h3 className="blueprint-h4 mb-4">Performance Metrics</h3>
+        <div className="blueprint-grid grid-cols-2 gap-4">
+          {fitnessMetrics.map((metric) => {
+            const Icon = metric.icon;
+            return (
+              <button
+                key={metric.id}
+                onClick={() => setActiveMetric(metric.id)}
+                className={`text-center p-4 rounded-xl blueprint-transition ${
+                  activeMetric === metric.id 
+                    ? 'bg-black text-white' 
+                    : 'bg-gray-100 hover:bg-gray-200'
+                }`}
+              >
+                <Icon className="w-6 h-6 mx-auto mb-2" />
+                <ProgressMeter 
+                  value={metric.score} 
+                  size={60} 
+                  color={activeMetric === metric.id ? "#ffffff" : "#000000"}
+                  showValue={false}
+                />
+                <p className="blueprint-caption mt-2 font-medium">{metric.name}</p>
+                <p className="blueprint-caption">{metric.score}%</p>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Weekly Plan */}
+      <div className="blueprint-card-standard">
+        <h3 className="blueprint-h4 mb-4">This Week's Plan</h3>
+        <div className="space-y-3">
+          {workoutPlan.map((workout, index) => (
+            <div
+              key={index}
+              className={`blueprint-flex-between p-4 rounded-xl border ${
+                workout.completed 
+                  ? 'bg-green-50 border-green-200' 
+                  : 'bg-gray-50 border-gray-200'
+              }`}
+            >
+              <div>
+                <p className="blueprint-body font-medium">{workout.day}</p>
+                <p className="blueprint-body-sm text-gray-600">{workout.focus}</p>
+              </div>
+              <div className="text-right">
+                <p className="blueprint-caption">{workout.duration}</p>
+                <div className={`w-3 h-3 rounded-full mt-1 ml-auto ${
+                  workout.completed ? 'bg-green-500' : 'bg-gray-300'
+                }`}></div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

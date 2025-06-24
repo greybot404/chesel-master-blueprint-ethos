@@ -43,7 +43,7 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       {/* Sidebar Trigger */}
       <div className="absolute top-4 left-4 z-50">
-        <SidebarTrigger className="flat-btn-secondary rounded-xl p-3 hover:scale-110 transition-all duration-200" />
+        <SidebarTrigger className="blueprint-btn-secondary rounded-xl p-3 blueprint-hover-scale blueprint-transition" />
       </div>
       
       {/* Main Content */}
